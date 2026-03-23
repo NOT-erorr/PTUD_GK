@@ -1,0 +1,721 @@
+[
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "File",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Form",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "UploadFile",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "uuid4",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "JWTError",
+        "importPath": "jose",
+        "description": "jose",
+        "isExtraImport": true,
+        "detail": "jose",
+        "documentation": {}
+    },
+    {
+        "label": "jwt",
+        "importPath": "jose",
+        "description": "jose",
+        "isExtraImport": true,
+        "detail": "jose",
+        "documentation": {}
+    },
+    {
+        "label": "CryptContext",
+        "importPath": "passlib.context",
+        "description": "passlib.context",
+        "isExtraImport": true,
+        "detail": "passlib.context",
+        "documentation": {}
+    },
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPAuthorizationCredentials",
+        "importPath": "fastapi.security",
+        "description": "fastapi.security",
+        "isExtraImport": true,
+        "detail": "fastapi.security",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPBearer",
+        "importPath": "fastapi.security",
+        "description": "fastapi.security",
+        "isExtraImport": true,
+        "detail": "fastapi.security",
+        "documentation": {}
+    },
+    {
+        "label": "CORSMiddleware",
+        "importPath": "fastapi.middleware.cors",
+        "description": "fastapi.middleware.cors",
+        "isExtraImport": true,
+        "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "StaticFiles",
+        "importPath": "fastapi.staticfiles",
+        "description": "fastapi.staticfiles",
+        "isExtraImport": true,
+        "detail": "fastapi.staticfiles",
+        "documentation": {}
+    },
+    {
+        "label": "func",
+        "importPath": "sqlalchemy.sql",
+        "description": "sqlalchemy.sql",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.sql",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "ConfigDict",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "EmailStr",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 2,
+        "importPath": "backend.app.routers.auth",
+        "description": "backend.app.routers.auth",
+        "peekOfCode": "def register(payload: schemas.UserCreate, db: Session = Depends(get_db)):\n    existing_user = (\n        db.query(models.User)\n        .filter((models.User.email == payload.email) | (models.User.username == payload.username))\n        .first()\n    )\n    if existing_user:\n        raise HTTPException(status_code=400, detail=\"Email or username already exists\")\n    user = models.User(\n        username=payload.username,",
+        "detail": "backend.app.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "backend.app.routers.auth",
+        "description": "backend.app.routers.auth",
+        "peekOfCode": "def login(payload: schemas.LoginRequest, db: Session = Depends(get_db)):\n    user = db.query(models.User).filter(models.User.email == payload.email).first()\n    if not user or not verify_password(payload.password, user.password):\n        raise HTTPException(status_code=401, detail=\"Invalid email or password\")\n    token = create_access_token(subject=user.email)\n    return {\"access_token\": token, \"token_type\": \"bearer\", \"user\": user}",
+        "detail": "backend.app.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.app.routers.auth",
+        "description": "backend.app.routers.auth",
+        "peekOfCode": "router = APIRouter(prefix=\"/api/auth\", tags=[\"auth\"])\n@router.post(\"/register\", response_model=schemas.TokenResponse, status_code=status.HTTP_201_CREATED)\ndef register(payload: schemas.UserCreate, db: Session = Depends(get_db)):\n    existing_user = (\n        db.query(models.User)\n        .filter((models.User.email == payload.email) | (models.User.username == payload.username))\n        .first()\n    )\n    if existing_user:\n        raise HTTPException(status_code=400, detail=\"Email or username already exists\")",
+        "detail": "backend.app.routers.auth",
+        "documentation": {}
+    },
+    {
+        "label": "upload_photo",
+        "kind": 2,
+        "importPath": "backend.app.routers.photos",
+        "description": "backend.app.routers.photos",
+        "peekOfCode": "def upload_photo(\n    title: str = Form(...),\n    description: str | None = Form(None),\n    file: UploadFile = File(...),\n    current_user: models.User = Depends(get_current_user),\n    db: Session = Depends(get_db),\n):\n    UPLOAD_DIR.mkdir(parents=True, exist_ok=True)\n    ext = Path(file.filename or \"\").suffix.lower()\n    if ext not in {\".jpg\", \".jpeg\", \".png\", \".gif\", \".webp\"}:",
+        "detail": "backend.app.routers.photos",
+        "documentation": {}
+    },
+    {
+        "label": "list_photos",
+        "kind": 2,
+        "importPath": "backend.app.routers.photos",
+        "description": "backend.app.routers.photos",
+        "peekOfCode": "def list_photos(\n    search: str | None = None,\n    current_user: models.User = Depends(get_current_user),\n    db: Session = Depends(get_db),\n):\n    query = db.query(models.Photo).filter(models.Photo.user_id == current_user.id)\n    if search:\n        query = query.filter(models.Photo.title.ilike(f\"%{search}%\"))\n    return query.order_by(models.Photo.uploaded_at.desc()).all()\n@router.get(\"/{photo_id}\", response_model=schemas.PhotoOut)",
+        "detail": "backend.app.routers.photos",
+        "documentation": {}
+    },
+    {
+        "label": "get_photo",
+        "kind": 2,
+        "importPath": "backend.app.routers.photos",
+        "description": "backend.app.routers.photos",
+        "peekOfCode": "def get_photo(\n    photo_id: int,\n    current_user: models.User = Depends(get_current_user),\n    db: Session = Depends(get_db),\n):\n    photo = (\n        db.query(models.Photo)\n        .filter(models.Photo.id == photo_id, models.Photo.user_id == current_user.id)\n        .first()\n    )",
+        "detail": "backend.app.routers.photos",
+        "documentation": {}
+    },
+    {
+        "label": "update_photo",
+        "kind": 2,
+        "importPath": "backend.app.routers.photos",
+        "description": "backend.app.routers.photos",
+        "peekOfCode": "def update_photo(\n    photo_id: int,\n    payload: schemas.PhotoUpdate,\n    current_user: models.User = Depends(get_current_user),\n    db: Session = Depends(get_db),\n):\n    photo = (\n        db.query(models.Photo)\n        .filter(models.Photo.id == photo_id, models.Photo.user_id == current_user.id)\n        .first()",
+        "detail": "backend.app.routers.photos",
+        "documentation": {}
+    },
+    {
+        "label": "delete_photo",
+        "kind": 2,
+        "importPath": "backend.app.routers.photos",
+        "description": "backend.app.routers.photos",
+        "peekOfCode": "def delete_photo(\n    photo_id: int,\n    current_user: models.User = Depends(get_current_user),\n    db: Session = Depends(get_db),\n):\n    photo = (\n        db.query(models.Photo)\n        .filter(models.Photo.id == photo_id, models.Photo.user_id == current_user.id)\n        .first()\n    )",
+        "detail": "backend.app.routers.photos",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "backend.app.routers.photos",
+        "description": "backend.app.routers.photos",
+        "peekOfCode": "router = APIRouter(prefix=\"/api/photos\", tags=[\"photos\"])\nUPLOAD_DIR = Path(__file__).resolve().parents[2] / \"uploads\"\n@router.post(\"/\", response_model=schemas.PhotoOut, status_code=status.HTTP_201_CREATED)\ndef upload_photo(\n    title: str = Form(...),\n    description: str | None = Form(None),\n    file: UploadFile = File(...),\n    current_user: models.User = Depends(get_current_user),\n    db: Session = Depends(get_db),\n):",
+        "detail": "backend.app.routers.photos",
+        "documentation": {}
+    },
+    {
+        "label": "UPLOAD_DIR",
+        "kind": 5,
+        "importPath": "backend.app.routers.photos",
+        "description": "backend.app.routers.photos",
+        "peekOfCode": "UPLOAD_DIR = Path(__file__).resolve().parents[2] / \"uploads\"\n@router.post(\"/\", response_model=schemas.PhotoOut, status_code=status.HTTP_201_CREATED)\ndef upload_photo(\n    title: str = Form(...),\n    description: str | None = Form(None),\n    file: UploadFile = File(...),\n    current_user: models.User = Depends(get_current_user),\n    db: Session = Depends(get_db),\n):\n    UPLOAD_DIR.mkdir(parents=True, exist_ok=True)",
+        "detail": "backend.app.routers.photos",
+        "documentation": {}
+    },
+    {
+        "label": "verify_password",
+        "kind": 2,
+        "importPath": "backend.app.auth",
+        "description": "backend.app.auth",
+        "peekOfCode": "def verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    if not password:\n        raise ValueError(\"Password cannot be empty\")\n    return pwd_context.hash(password)\ndef hash_password(password: str) -> str:\n    return get_password_hash(password)\ndef create_access_token(subject: str, expires_delta: timedelta | None = None) -> str:\n    expire = datetime.now(timezone.utc) + (",
+        "detail": "backend.app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "get_password_hash",
+        "kind": 2,
+        "importPath": "backend.app.auth",
+        "description": "backend.app.auth",
+        "peekOfCode": "def get_password_hash(password: str) -> str:\n    if not password:\n        raise ValueError(\"Password cannot be empty\")\n    return pwd_context.hash(password)\ndef hash_password(password: str) -> str:\n    return get_password_hash(password)\ndef create_access_token(subject: str, expires_delta: timedelta | None = None) -> str:\n    expire = datetime.now(timezone.utc) + (\n        expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    )",
+        "detail": "backend.app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "hash_password",
+        "kind": 2,
+        "importPath": "backend.app.auth",
+        "description": "backend.app.auth",
+        "peekOfCode": "def hash_password(password: str) -> str:\n    return get_password_hash(password)\ndef create_access_token(subject: str, expires_delta: timedelta | None = None) -> str:\n    expire = datetime.now(timezone.utc) + (\n        expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    )\n    to_encode = {\"sub\": subject, \"exp\": expire}\n    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)\ndef decode_token(token: str) -> str | None:\n    try:",
+        "detail": "backend.app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "create_access_token",
+        "kind": 2,
+        "importPath": "backend.app.auth",
+        "description": "backend.app.auth",
+        "peekOfCode": "def create_access_token(subject: str, expires_delta: timedelta | None = None) -> str:\n    expire = datetime.now(timezone.utc) + (\n        expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)\n    )\n    to_encode = {\"sub\": subject, \"exp\": expire}\n    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)\ndef decode_token(token: str) -> str | None:\n    try:\n        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])\n        return payload.get(\"sub\")",
+        "detail": "backend.app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "decode_token",
+        "kind": 2,
+        "importPath": "backend.app.auth",
+        "description": "backend.app.auth",
+        "peekOfCode": "def decode_token(token: str) -> str | None:\n    try:\n        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])\n        return payload.get(\"sub\")\n    except JWTError:\n        return None",
+        "detail": "backend.app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "backend.app.auth",
+        "description": "backend.app.auth",
+        "peekOfCode": "SECRET_KEY = \"replace-this-with-a-long-random-secret\"\nALGORITHM = \"HS256\"\nACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24\n# Use pbkdf2_sha256 for broad compatibility (including slim Docker images).\npwd_context = CryptContext(schemes=[\"pbkdf2_sha256\"], deprecated=\"auto\")\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    if not password:\n        raise ValueError(\"Password cannot be empty\")",
+        "detail": "backend.app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "ALGORITHM",
+        "kind": 5,
+        "importPath": "backend.app.auth",
+        "description": "backend.app.auth",
+        "peekOfCode": "ALGORITHM = \"HS256\"\nACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24\n# Use pbkdf2_sha256 for broad compatibility (including slim Docker images).\npwd_context = CryptContext(schemes=[\"pbkdf2_sha256\"], deprecated=\"auto\")\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    if not password:\n        raise ValueError(\"Password cannot be empty\")\n    return pwd_context.hash(password)",
+        "detail": "backend.app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "ACCESS_TOKEN_EXPIRE_MINUTES",
+        "kind": 5,
+        "importPath": "backend.app.auth",
+        "description": "backend.app.auth",
+        "peekOfCode": "ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24\n# Use pbkdf2_sha256 for broad compatibility (including slim Docker images).\npwd_context = CryptContext(schemes=[\"pbkdf2_sha256\"], deprecated=\"auto\")\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    if not password:\n        raise ValueError(\"Password cannot be empty\")\n    return pwd_context.hash(password)\ndef hash_password(password: str) -> str:",
+        "detail": "backend.app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "pwd_context",
+        "kind": 5,
+        "importPath": "backend.app.auth",
+        "description": "backend.app.auth",
+        "peekOfCode": "pwd_context = CryptContext(schemes=[\"pbkdf2_sha256\"], deprecated=\"auto\")\ndef verify_password(plain_password: str, hashed_password: str) -> bool:\n    return pwd_context.verify(plain_password, hashed_password)\ndef get_password_hash(password: str) -> str:\n    if not password:\n        raise ValueError(\"Password cannot be empty\")\n    return pwd_context.hash(password)\ndef hash_password(password: str) -> str:\n    return get_password_hash(password)\ndef create_access_token(subject: str, expires_delta: timedelta | None = None) -> str:",
+        "detail": "backend.app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "kind": 2,
+        "importPath": "backend.app.database",
+        "description": "backend.app.database",
+        "peekOfCode": "def get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+        "detail": "backend.app.database",
+        "documentation": {}
+    },
+    {
+        "label": "SQLALCHEMY_DATABASE_URL",
+        "kind": 5,
+        "importPath": "backend.app.database",
+        "description": "backend.app.database",
+        "peekOfCode": "SQLALCHEMY_DATABASE_URL = \"sqlite:///./gallery.db\"\nengine = create_engine(\n    SQLALCHEMY_DATABASE_URL,\n    connect_args={\"check_same_thread\": False},\n)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:",
+        "detail": "backend.app.database",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "backend.app.database",
+        "description": "backend.app.database",
+        "peekOfCode": "engine = create_engine(\n    SQLALCHEMY_DATABASE_URL,\n    connect_args={\"check_same_thread\": False},\n)\nSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db",
+        "detail": "backend.app.database",
+        "documentation": {}
+    },
+    {
+        "label": "SessionLocal",
+        "kind": 5,
+        "importPath": "backend.app.database",
+        "description": "backend.app.database",
+        "peekOfCode": "SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)\nBase = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+        "detail": "backend.app.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "backend.app.database",
+        "description": "backend.app.database",
+        "peekOfCode": "Base = declarative_base()\ndef get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+        "detail": "backend.app.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "kind": 2,
+        "importPath": "backend.app.dependencies",
+        "description": "backend.app.dependencies",
+        "peekOfCode": "def get_current_user(\n    credentials: HTTPAuthorizationCredentials | None = Depends(security),\n    db: Session = Depends(get_db),\n) -> models.User:\n    if not credentials:\n        raise HTTPException(\n            status_code=status.HTTP_401_UNAUTHORIZED,\n            detail=\"Missing authentication token\",\n        )\n    email = decode_token(credentials.credentials)",
+        "detail": "backend.app.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "security",
+        "kind": 5,
+        "importPath": "backend.app.dependencies",
+        "description": "backend.app.dependencies",
+        "peekOfCode": "security = HTTPBearer(auto_error=False)\ndef get_current_user(\n    credentials: HTTPAuthorizationCredentials | None = Depends(security),\n    db: Session = Depends(get_db),\n) -> models.User:\n    if not credentials:\n        raise HTTPException(\n            status_code=status.HTTP_401_UNAUTHORIZED,\n            detail=\"Missing authentication token\",\n        )",
+        "detail": "backend.app.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "on_startup",
+        "kind": 2,
+        "importPath": "backend.app.main",
+        "description": "backend.app.main",
+        "peekOfCode": "def on_startup():\n    Base.metadata.create_all(bind=engine)\n@app.get(\"/api/health\")\ndef health_check():\n    return {\"status\": \"ok\"}",
+        "detail": "backend.app.main",
+        "documentation": {}
+    },
+    {
+        "label": "health_check",
+        "kind": 2,
+        "importPath": "backend.app.main",
+        "description": "backend.app.main",
+        "peekOfCode": "def health_check():\n    return {\"status\": \"ok\"}",
+        "detail": "backend.app.main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "backend.app.main",
+        "description": "backend.app.main",
+        "peekOfCode": "app = FastAPI(title=\"Gallery App API\")\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"http://localhost:5173\"],\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\napp.include_router(auth.router)\napp.include_router(photos.router)",
+        "detail": "backend.app.main",
+        "documentation": {}
+    },
+    {
+        "label": "uploads_dir",
+        "kind": 5,
+        "importPath": "backend.app.main",
+        "description": "backend.app.main",
+        "peekOfCode": "uploads_dir = Path(__file__).resolve().parents[1] / \"uploads\"\nuploads_dir.mkdir(parents=True, exist_ok=True)\napp.mount(\"/uploads\", StaticFiles(directory=uploads_dir), name=\"uploads\")\n@app.on_event(\"startup\")\ndef on_startup():\n    Base.metadata.create_all(bind=engine)\n@app.get(\"/api/health\")\ndef health_check():\n    return {\"status\": \"ok\"}",
+        "detail": "backend.app.main",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "backend.app.models",
+        "description": "backend.app.models",
+        "peekOfCode": "class User(Base):\n    __tablename__ = \"users\"\n    id = Column(Integer, primary_key=True, index=True)\n    username = Column(String(50), unique=True, nullable=False, index=True)\n    email = Column(String(255), unique=True, nullable=False, index=True)\n    password = Column(String(255), nullable=False)\n    photos = relationship(\"Photo\", back_populates=\"owner\", cascade=\"all, delete-orphan\")\nclass Photo(Base):\n    __tablename__ = \"photos\"\n    id = Column(Integer, primary_key=True, index=True)",
+        "detail": "backend.app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Photo",
+        "kind": 6,
+        "importPath": "backend.app.models",
+        "description": "backend.app.models",
+        "peekOfCode": "class Photo(Base):\n    __tablename__ = \"photos\"\n    id = Column(Integer, primary_key=True, index=True)\n    title = Column(String(255), nullable=False, index=True)\n    description = Column(Text, nullable=True)\n    image_url = Column(String(255), nullable=False)\n    uploaded_at = Column(DateTime(timezone=True), server_default=func.now())\n    user_id = Column(Integer, ForeignKey(\"users.id\", ondelete=\"CASCADE\"), nullable=False)\n    owner = relationship(\"User\", back_populates=\"photos\")",
+        "detail": "backend.app.models",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreate",
+        "kind": 6,
+        "importPath": "backend.app.schemas",
+        "description": "backend.app.schemas",
+        "peekOfCode": "class UserCreate(BaseModel):\n    username: str\n    email: EmailStr\n    password: str\nclass UserOut(BaseModel):\n    id: int\n    username: str\n    email: EmailStr\n    model_config = ConfigDict(from_attributes=True)\nclass LoginRequest(BaseModel):",
+        "detail": "backend.app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UserOut",
+        "kind": 6,
+        "importPath": "backend.app.schemas",
+        "description": "backend.app.schemas",
+        "peekOfCode": "class UserOut(BaseModel):\n    id: int\n    username: str\n    email: EmailStr\n    model_config = ConfigDict(from_attributes=True)\nclass LoginRequest(BaseModel):\n    email: EmailStr\n    password: str\nclass TokenResponse(BaseModel):\n    access_token: str",
+        "detail": "backend.app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "LoginRequest",
+        "kind": 6,
+        "importPath": "backend.app.schemas",
+        "description": "backend.app.schemas",
+        "peekOfCode": "class LoginRequest(BaseModel):\n    email: EmailStr\n    password: str\nclass TokenResponse(BaseModel):\n    access_token: str\n    token_type: str\n    user: UserOut\nclass PhotoOut(BaseModel):\n    id: int\n    title: str",
+        "detail": "backend.app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "TokenResponse",
+        "kind": 6,
+        "importPath": "backend.app.schemas",
+        "description": "backend.app.schemas",
+        "peekOfCode": "class TokenResponse(BaseModel):\n    access_token: str\n    token_type: str\n    user: UserOut\nclass PhotoOut(BaseModel):\n    id: int\n    title: str\n    description: str | None\n    image_url: str\n    uploaded_at: datetime",
+        "detail": "backend.app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "PhotoOut",
+        "kind": 6,
+        "importPath": "backend.app.schemas",
+        "description": "backend.app.schemas",
+        "peekOfCode": "class PhotoOut(BaseModel):\n    id: int\n    title: str\n    description: str | None\n    image_url: str\n    uploaded_at: datetime\n    user_id: int\n    model_config = ConfigDict(from_attributes=True)\nclass PhotoUpdate(BaseModel):\n    title: str",
+        "detail": "backend.app.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "PhotoUpdate",
+        "kind": 6,
+        "importPath": "backend.app.schemas",
+        "description": "backend.app.schemas",
+        "peekOfCode": "class PhotoUpdate(BaseModel):\n    title: str\n    description: str | None = None",
+        "detail": "backend.app.schemas",
+        "documentation": {}
+    }
+]
