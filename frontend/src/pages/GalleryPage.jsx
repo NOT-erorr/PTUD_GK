@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import api from "../api";
@@ -14,24 +14,61 @@ function GalleryPage() {
 
   const [photos, setPhotos] = useState([]);
   const [search, setSearch] = useState("");
+  const [sortOrder, setSortOrder] = useState("newest");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]);
+  const [previews, setPreviews] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [isDragging, setIsDragging] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef(null);
+  const dragCounter = useRef(0);
+
+  // generate / revoke preview URLs when files change
+  useEffect(() => {
+    if (files.length === 0) { setPreviews([]); return; }
+    const urls = files.map((f) => URL.createObjectURL(f));
+    setPreviews(urls);
+    return () => urls.forEach((u) => URL.revokeObjectURL(u));
+  }, [files]);
+
+  const addFiles = useCallback((newFiles) => {
+    const imageFiles = Array.from(newFiles).filter((f) => f.type.startsWith("image/"));
+    if (imageFiles.length === 0) return;
+    setFiles((prev) => [...prev, ...imageFiles]);
+  }, []);
+
+  const removeFile = (e, index) => {
+    e.stopPropagation();
+    setFiles((prev) => prev.filter((_, i) => i !== index));
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
+  const clearFiles = () => {
+    setFiles([]);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
+  const formatSize = (bytes) => {
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+  };
 
   const [editingId, setEditingId] = useState(null);
   const [editTitle, setEditTitle] = useState("");
   const [editDescription, setEditDescription] = useState("");
 
-  const fetchPhotos = async (query = "") => {
+  const fetchPhotos = async (query = "", sort = sortOrder) => {
     setLoading(true);
     setError("");
     try {
-      const { data } = await api.get("/photos", {
-        params: query ? { search: query } : {},
-      });
+      const params = { sort };
+      if (query) params.search = query;
+      const { data } = await api.get("/photos", { params });
       setPhotos(data);
     } catch (err) {
       setError(err.response?.data?.detail || "Failed to load photos");
@@ -44,23 +81,58 @@ function GalleryPage() {
     fetchPhotos();
   }, []);
 
+  /* ── drag-and-drop handlers ── */
+  const handleDragEnter = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dragCounter.current += 1;
+    if (e.dataTransfer.types.includes("Files")) setIsDragging(true);
+  }, []);
+
+  const handleDragLeave = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dragCounter.current -= 1;
+    if (dragCounter.current === 0) setIsDragging(false);
+  }, []);
+
+  const handleDragOver = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, []);
+
+  const handleDrop = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+    dragCounter.current = 0;
+    if (e.dataTransfer.files?.length) {
+      addFiles(e.dataTransfer.files);
+    }
+  }, [addFiles]);
+
   const handleUpload = async (event) => {
     event.preventDefault();
-    if (!file) return;
-
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("title", title);
-    formData.append("description", description);
+    if (files.length === 0) return;
+    setUploading(true);
+    setError("");
 
     try {
-      await api.post("/photos/", formData);
-      setFile(null);
+      for (let i = 0; i < files.length; i++) {
+        const formData = new FormData();
+        formData.append("file", files[i]);
+        formData.append("title", files.length === 1 ? title : (title ? `${title} (${i + 1})` : files[i].name));
+        formData.append("description", description);
+        await api.post("/photos/", formData);
+      }
+      clearFiles();
       setTitle("");
       setDescription("");
       await fetchPhotos(search);
     } catch (err) {
       setError(err.response?.data?.detail || "Upload failed");
+    } finally {
+      setUploading(false);
     }
   };
 
@@ -92,6 +164,25 @@ function GalleryPage() {
     }
   };
 
+  const handleSortChange = (newSort) => {
+    setSortOrder(newSort);
+    fetchPhotos(search, newSort);
+  };
+
+  const handleShare = async (photoId) => {
+    const caption = prompt("Add a caption for the community post (optional):");
+    if (caption === null) return; // cancelled
+    try {
+      const formData = new FormData();
+      formData.append("photo_id", photoId);
+      formData.append("caption", caption);
+      await api.post("/community/", formData);
+      alert("Shared to community!");
+    } catch (err) {
+      setError(err.response?.data?.detail || "Failed to share");
+    }
+  };
+
   const subtitle = useMemo(() => {
     return `${photos.length} photo${photos.length === 1 ? "" : "s"}`;
   }, [photos.length]);
@@ -103,9 +194,12 @@ function GalleryPage() {
           <h1>{user.username}'s Gallery</h1>
           <p>{subtitle}</p>
         </div>
-        <button className="ghost" onClick={logout}>
-          Logout
-        </button>
+        <div className="topbar__actions">
+          <Link to="/community" className="link-btn">Community</Link>
+          <button className="ghost" onClick={logout}>
+            Logout
+          </button>
+        </div>
       </header>
 
       <section className="card uploader">
@@ -123,18 +217,82 @@ function GalleryPage() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0])} required />
-          <button type="submit">Upload</button>
+
+          {/* ── drag-and-drop zone ── */}
+          <div
+            className={`drop-zone${isDragging ? " drop-zone--active" : ""}${files.length > 0 ? " drop-zone--has-file" : ""}`}
+            onDragEnter={handleDragEnter}
+            onDragLeave={handleDragLeave}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
+            onClick={() => fileInputRef.current?.click()}
+          >
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              multiple
+              className="drop-zone__input"
+              onChange={(e) => { if (e.target.files?.length) addFiles(e.target.files); }}
+            />
+            {files.length > 0 ? (
+              <div className="drop-zone__list">
+                {files.map((f, i) => (
+                  <div className="drop-zone__preview" key={`${f.name}-${i}`}>
+                    <img src={previews[i]} alt="Preview" className="drop-zone__thumb" />
+                    <div className="drop-zone__meta">
+                      <span className="drop-zone__name">{f.name}</span>
+                      <span className="drop-zone__size">{formatSize(f.size)}</span>
+                    </div>
+                    <button type="button" className="drop-zone__remove" onClick={(e) => removeFile(e, i)} title="Remove">
+                      ✕
+                    </button>
+                  </div>
+                ))}
+                <p className="drop-zone__hint">Click or drop to add more images</p>
+              </div>
+            ) : (
+              <>
+                <span className="drop-zone__icon">📁</span>
+                <p>Drag & drop images here</p>
+                <span className="drop-zone__or">or</span>
+                <button type="button" className="choose-btn" onClick={(e) => { e.stopPropagation(); fileInputRef.current?.click(); }}>
+                  Choose Files
+                </button>
+              </>
+            )}
+          </div>
+
+          <button type="submit" disabled={files.length === 0 || uploading}>
+            {uploading ? "Uploading..." : `Upload${files.length > 1 ? ` (${files.length})` : ""}`}
+          </button>
         </form>
       </section>
 
-      <section className="search-row card">
-        <input
-          placeholder="Search by title..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button onClick={() => fetchPhotos(search)}>Search</button>
+      <section className="search-sort-row card">
+        <div className="search-row">
+          <input
+            placeholder="Search by title..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button onClick={() => fetchPhotos(search)}>Search</button>
+        </div>
+        <div className="sort-row">
+          <span className="sort-label">Sort:</span>
+          <button
+            className={sortOrder === "newest" ? "newest" : "ghost"}
+            onClick={() => handleSortChange("newest")}
+          >
+            Newest
+          </button>
+          <button
+            className={sortOrder === "oldest" ? "oldest" : "ghost"}
+            onClick={() => handleSortChange("oldest")}
+          >
+            Oldest
+          </button>
+        </div>
       </section>
 
       {error && <div className="error card">{error}</div>}
@@ -172,6 +330,9 @@ function GalleryPage() {
                     </Link>
                     <button className="ghost" onClick={() => startEdit(photo)}>
                       Edit
+                    </button>
+                    <button className="ghost" onClick={() => handleShare(photo.id)}>
+                      Share
                     </button>
                     <button className="danger" onClick={() => handleDelete(photo.id)}>
                       Delete

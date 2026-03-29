@@ -42,3 +42,33 @@ class PhotoOut(BaseModel):
 class PhotoUpdate(BaseModel):
     title: str
     description: str | None = None
+
+
+# ── Community ──
+
+class CommentOut(BaseModel):
+    id: int
+    text: str
+    created_at: datetime
+    user_id: int
+    username: str  # populated manually
+    post_id: int
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class CommentCreate(BaseModel):
+    text: str
+
+
+class CommunityPostOut(BaseModel):
+    id: int
+    caption: str | None
+    image_url: str
+    created_at: datetime
+    user_id: int
+    username: str  # populated manually
+    photo_id: int | None
+    comments: list[CommentOut] = []
+
+    model_config = ConfigDict(from_attributes=True)

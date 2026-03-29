@@ -48,13 +48,18 @@ def upload_photo(
 @router.get("/", response_model=list[schemas.PhotoOut])
 def list_photos(
     search: str | None = None,
+    sort: str | None = "newest",
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     query = db.query(models.Photo).filter(models.Photo.user_id == current_user.id)
     if search:
         query = query.filter(models.Photo.title.ilike(f"%{search}%"))
-    return query.order_by(models.Photo.uploaded_at.desc()).all()
+    if sort == "oldest":
+        query = query.order_by(models.Photo.uploaded_at.asc())
+    else:
+        query = query.order_by(models.Photo.uploaded_at.desc())
+    return query.all()
 
 
 @router.get("/{photo_id}", response_model=schemas.PhotoOut)

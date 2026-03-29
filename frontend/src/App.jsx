@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import ProtectedRoute from "./components/ProtectedRoute";
+import CommunityPage from "./pages/CommunityPage";
 import GalleryPage from "./pages/GalleryPage";
 import LoginPage from "./pages/LoginPage";
 import PhotoDetailPage from "./pages/PhotoDetailPage";
@@ -24,6 +25,14 @@ function App() {
         element={
           <ProtectedRoute>
             <PhotoDetailPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/community"
+        element={
+          <ProtectedRoute>
+            <CommunityPage />
           </ProtectedRoute>
         }
       />
