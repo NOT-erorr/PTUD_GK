@@ -99,6 +99,24 @@ def update_photo(
     db.refresh(photo)
     return photo
 
+@router.patch("/{photo_id}/favorite", response_model=schemas.PhotoOut)
+def favorite_photo(
+    photo_id: int,
+    current_user: models.User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    photo = (
+        db.query(models.Photo)
+        .filter(models.Photo.id == photo_id, models.Photo.user_id == current_user.id)
+        .first()
+    )
+    if not photo:
+        raise HTTPException(status_code=404, detail="Photo not found")
+
+    photo.is_favorite = not photo.is_favorite
+    db.commit()
+    db.refresh(photo)
+    return photo
 
 @router.delete("/{photo_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_photo(
@@ -114,9 +132,15 @@ def delete_photo(
     if not photo:
         raise HTTPException(status_code=404, detail="Photo not found")
 
+    # Xóa các bài community post liên kết với ảnh này
+    db.query(models.CommunityPost).filter(
+        models.CommunityPost.photo_id == photo_id
+    ).delete()
+
     image_file = Path(__file__).resolve().parents[2] / photo.image_url.lstrip("/")
     if image_file.exists() and image_file.is_file():
         os.remove(image_file)
 
     db.delete(photo)
     db.commit()
+

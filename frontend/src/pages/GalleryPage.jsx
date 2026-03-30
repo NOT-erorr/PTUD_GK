@@ -9,6 +9,8 @@ const API_ROOT = (import.meta.env.VITE_API_URL || "http://localhost:8000/api").r
   ""
 );
 
+const ITEMS_PER_PAGE = 8;
+
 function GalleryPage() {
   const { user, logout } = useAuth();
 
@@ -17,6 +19,7 @@ function GalleryPage() {
   const [sortOrder, setSortOrder] = useState("newest");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   const [files, setFiles] = useState([]);
   const [previews, setPreviews] = useState([]);
@@ -65,6 +68,7 @@ function GalleryPage() {
   const fetchPhotos = async (query = "", sort = sortOrder) => {
     setLoading(true);
     setError("");
+    setCurrentPage(1);
     try {
       const params = { sort };
       if (query) params.search = query;
@@ -169,6 +173,26 @@ function GalleryPage() {
     fetchPhotos(search, newSort);
   };
 
+  const toggleFavorite = async (photoId) => {
+    // Optimistic update
+    setPhotos((prev) =>
+      prev.map((p) =>
+        p.id === photoId ? { ...p, is_favorite: !p.is_favorite } : p
+      )
+    );
+    try {
+      await api.patch(`/photos/${photoId}/favorite`);
+    } catch (err) {
+      // Rollback
+      setPhotos((prev) =>
+        prev.map((p) =>
+          p.id === photoId ? { ...p, is_favorite: !p.is_favorite } : p
+        )
+      );
+      setError(err.response?.data?.detail || "Failed to update favorite");
+    }
+  };
+
   const handleShare = async (photoId) => {
     const caption = prompt("Add a caption for the community post (optional):");
     if (caption === null) return; // cancelled
@@ -182,6 +206,12 @@ function GalleryPage() {
       setError(err.response?.data?.detail || "Failed to share");
     }
   };
+
+  const totalPages = Math.max(1, Math.ceil(photos.length / ITEMS_PER_PAGE));
+  const pagedPhotos = useMemo(() => {
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    return photos.slice(start, start + ITEMS_PER_PAGE);
+  }, [photos, currentPage]);
 
   const subtitle = useMemo(() => {
     return `${photos.length} photo${photos.length === 1 ? "" : "s"}`;
@@ -303,9 +333,18 @@ function GalleryPage() {
         ) : photos.length === 0 ? (
           <div className="card">No photos found.</div>
         ) : (
-          photos.map((photo) => (
+          pagedPhotos.map((photo) => (
             <article className="card photo-card" key={photo.id}>
-              <img src={`${API_ROOT}${photo.image_url}`} alt={photo.title} />
+              <div className="photo-card__img-wrap">
+                <img src={`${API_ROOT}${photo.image_url}`} alt={photo.title} />
+                <button
+                  className={`photo-card__heart${photo.is_favorite ? " photo-card__heart--active" : ""}`}
+                  onClick={() => toggleFavorite(photo.id)}
+                  title={photo.is_favorite ? "Bỏ yêu thích" : "Yêu thích"}
+                >
+                  {photo.is_favorite ? "❤️" : "🤍"}
+                </button>
+              </div>
               {editingId === photo.id ? (
                 <div className="edit-form">
                   <input value={editTitle} onChange={(e) => setEditTitle(e.target.value)} />
@@ -344,6 +383,37 @@ function GalleryPage() {
           ))
         )}
       </section>
+
+      {/* Pagination */}
+      {!loading && totalPages > 1 && (
+        <nav className="pagination card">
+          <button
+            className="ghost"
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage((p) => p - 1)}
+          >
+            ← Prev
+          </button>
+          <div className="pagination__pages">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                className={page === currentPage ? "pagination__page--active" : "ghost"}
+                onClick={() => setCurrentPage(page)}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+          <button
+            className="ghost"
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage((p) => p + 1)}
+          >
+            Next →
+          </button>
+        </nav>
+      )}
     </div>
   );
 }

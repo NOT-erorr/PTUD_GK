@@ -35,13 +35,14 @@ class PhotoOut(BaseModel):
     image_url: str
     uploaded_at: datetime
     user_id: int
-
+    is_favorite: bool
     model_config = ConfigDict(from_attributes=True)
 
 
 class PhotoUpdate(BaseModel):
     title: str
     description: str | None = None
+    is_favorite: bool = False
 
 
 # ── Community ──

@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 import CommunityPage from "./pages/CommunityPage";
+import FavoritePage from "./pages/FavoritePage";
 import GalleryPage from "./pages/GalleryPage";
 import LoginPage from "./pages/LoginPage";
 import PhotoDetailPage from "./pages/PhotoDetailPage";
@@ -33,6 +34,14 @@ function App() {
         element={
           <ProtectedRoute>
             <CommunityPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/favorites"
+        element={
+          <ProtectedRoute>
+            <FavoritePage />
           </ProtectedRoute>
         }
       />

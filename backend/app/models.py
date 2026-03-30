@@ -27,7 +27,7 @@ class Photo(Base):
     image_url = Column(String(255), nullable=False)
     uploaded_at = Column(DateTime(timezone=True), server_default=func.now())
     user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
-
+    is_favorite = Column(Boolean, default=False)
     owner = relationship("User", back_populates="photos")
 
 
