@@ -68,11 +68,7 @@ def get_photo(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    photo = (
-        db.query(models.Photo)
-        .filter(models.Photo.id == photo_id, models.Photo.user_id == current_user.id)
-        .first()
-    )
+    photo = db.query(models.Photo).filter(models.Photo.id == photo_id).first()
     if not photo:
         raise HTTPException(status_code=404, detail="Photo not found")
     return photo
@@ -105,11 +101,7 @@ def favorite_photo(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    photo = (
-        db.query(models.Photo)
-        .filter(models.Photo.id == photo_id, models.Photo.user_id == current_user.id)
-        .first()
-    )
+    photo = db.query(models.Photo).filter(models.Photo.id == photo_id).first()
     if not photo:
         raise HTTPException(status_code=404, detail="Photo not found")
 
