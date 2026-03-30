@@ -9,6 +9,8 @@ const API_ROOT = (import.meta.env.VITE_API_URL || "http://localhost:8000/api").r
   ""
 );
 
+const ITEMS_PER_PAGE = 8;
+
 function GalleryPage() {
   const { user, logout } = useAuth();
 
@@ -17,6 +19,7 @@ function GalleryPage() {
   const [sortOrder, setSortOrder] = useState("newest");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   const [files, setFiles] = useState([]);
   const [previews, setPreviews] = useState([]);
@@ -65,6 +68,7 @@ function GalleryPage() {
   const fetchPhotos = async (query = "", sort = sortOrder) => {
     setLoading(true);
     setError("");
+    setCurrentPage(1);
     try {
       const params = { sort };
       if (query) params.search = query;
@@ -203,6 +207,12 @@ function GalleryPage() {
     }
   };
 
+  const totalPages = Math.max(1, Math.ceil(photos.length / ITEMS_PER_PAGE));
+  const pagedPhotos = useMemo(() => {
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    return photos.slice(start, start + ITEMS_PER_PAGE);
+  }, [photos, currentPage]);
+
   const subtitle = useMemo(() => {
     return `${photos.length} photo${photos.length === 1 ? "" : "s"}`;
   }, [photos.length]);
@@ -323,7 +333,7 @@ function GalleryPage() {
         ) : photos.length === 0 ? (
           <div className="card">No photos found.</div>
         ) : (
-          photos.map((photo) => (
+          pagedPhotos.map((photo) => (
             <article className="card photo-card" key={photo.id}>
               <div className="photo-card__img-wrap">
                 <img src={`${API_ROOT}${photo.image_url}`} alt={photo.title} />
@@ -373,6 +383,37 @@ function GalleryPage() {
           ))
         )}
       </section>
+
+      {/* Pagination */}
+      {!loading && totalPages > 1 && (
+        <nav className="pagination card">
+          <button
+            className="ghost"
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage((p) => p - 1)}
+          >
+            ← Prev
+          </button>
+          <div className="pagination__pages">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                className={page === currentPage ? "pagination__page--active" : "ghost"}
+                onClick={() => setCurrentPage(page)}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+          <button
+            className="ghost"
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage((p) => p + 1)}
+          >
+            Next →
+          </button>
+        </nav>
+      )}
     </div>
   );
 }

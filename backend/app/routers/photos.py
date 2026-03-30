@@ -132,9 +132,15 @@ def delete_photo(
     if not photo:
         raise HTTPException(status_code=404, detail="Photo not found")
 
+    # Xóa các bài community post liên kết với ảnh này
+    db.query(models.CommunityPost).filter(
+        models.CommunityPost.photo_id == photo_id
+    ).delete()
+
     image_file = Path(__file__).resolve().parents[2] / photo.image_url.lstrip("/")
     if image_file.exists() and image_file.is_file():
         os.remove(image_file)
 
     db.delete(photo)
     db.commit()
+

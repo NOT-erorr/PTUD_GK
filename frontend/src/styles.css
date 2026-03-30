@@ -619,6 +619,42 @@ button.danger {
   opacity: 0.8;
 }
 
+/* ── Pagination ── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.8rem 1rem;
+  margin-top: 1rem;
+}
+
+.pagination__pages {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.pagination__pages button {
+  min-width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+
+.pagination__page--active {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.pagination button:disabled {
+  opacity: 0.35;
+  cursor: default;
+  transform: none;
+}
+
 /* ── Animations ── */
 @keyframes rise {
   from {
@@ -651,5 +687,9 @@ button.danger {
 
   .search-row {
     grid-template-columns: 1fr;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
   }
 }
