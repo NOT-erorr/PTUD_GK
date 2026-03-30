@@ -120,9 +120,14 @@ function CommunityPage() {
           <h1>🌍 Community</h1>
           <p>Photos shared by all users</p>
         </div>
-        <Link to="/" className="link-btn">
-          My Gallery
-        </Link>
+        <div className="topbar__actions">
+          {user.is_admin && (
+            <Link to="/admin" className="link-btn">Admin Panel</Link>
+          )}
+          <Link to="/" className="link-btn">
+            My Gallery
+          </Link>
+        </div>
       </header>
 
       {error && <div className="error card">{error}</div>}
@@ -147,7 +152,7 @@ function CommunityPage() {
                     <strong>{post.username}</strong>
                     <span className="community-card__time">{timeAgo(post.created_at)}</span>
                   </div>
-                  {post.user_id === user.id && (
+                  {(post.user_id === user.id || user.is_admin) && (
                     <button className="drop-zone__remove" onClick={() => handleDelete(post.id)} title="Delete post">
                       ✕
                     </button>

@@ -225,6 +225,9 @@ function GalleryPage() {
           <p>{subtitle}</p>
         </div>
         <div className="topbar__actions">
+          {user.is_admin && (
+            <Link to="/admin" className="link-btn">Admin Panel</Link>
+          )}
           <Link to="/community" className="link-btn">Community</Link>
           <button className="ghost" onClick={logout}>
             Logout

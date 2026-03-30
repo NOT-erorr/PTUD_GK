@@ -655,6 +655,49 @@ button.danger {
   transform: none;
 }
 
+/* ── Admin Page ── */
+.admin-page {
+  width: min(1000px, 92vw);
+  margin: 2rem auto;
+}
+
+.admin-section {
+  padding: 1.5rem;
+}
+
+.admin-table-container {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th, .admin-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-table th {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.role-badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.role-badge--admin {
+  background: rgba(234, 179, 8, 0.2);
+  color: #fef08a;
+}
+
 /* ── Animations ── */
 @keyframes rise {
   from {

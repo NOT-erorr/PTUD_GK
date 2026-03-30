@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminPage from "./pages/AdminPage";
 import CommunityPage from "./pages/CommunityPage";
 import FavoritePage from "./pages/FavoritePage";
 import GalleryPage from "./pages/GalleryPage";
@@ -42,6 +43,14 @@ function App() {
         element={
           <ProtectedRoute>
             <FavoritePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoute>
+            <AdminPage />
           </ProtectedRoute>
         }
       />
