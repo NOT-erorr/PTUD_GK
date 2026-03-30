@@ -169,6 +169,26 @@ function GalleryPage() {
     fetchPhotos(search, newSort);
   };
 
+  const toggleFavorite = async (photoId) => {
+    // Optimistic update
+    setPhotos((prev) =>
+      prev.map((p) =>
+        p.id === photoId ? { ...p, is_favorite: !p.is_favorite } : p
+      )
+    );
+    try {
+      await api.patch(`/photos/${photoId}/favorite`);
+    } catch (err) {
+      // Rollback
+      setPhotos((prev) =>
+        prev.map((p) =>
+          p.id === photoId ? { ...p, is_favorite: !p.is_favorite } : p
+        )
+      );
+      setError(err.response?.data?.detail || "Failed to update favorite");
+    }
+  };
+
   const handleShare = async (photoId) => {
     const caption = prompt("Add a caption for the community post (optional):");
     if (caption === null) return; // cancelled
@@ -305,7 +325,16 @@ function GalleryPage() {
         ) : (
           photos.map((photo) => (
             <article className="card photo-card" key={photo.id}>
-              <img src={`${API_ROOT}${photo.image_url}`} alt={photo.title} />
+              <div className="photo-card__img-wrap">
+                <img src={`${API_ROOT}${photo.image_url}`} alt={photo.title} />
+                <button
+                  className={`photo-card__heart${photo.is_favorite ? " photo-card__heart--active" : ""}`}
+                  onClick={() => toggleFavorite(photo.id)}
+                  title={photo.is_favorite ? "Bỏ yêu thích" : "Yêu thích"}
+                >
+                  {photo.is_favorite ? "❤️" : "🤍"}
+                </button>
+              </div>
               {editingId === photo.id ? (
                 <div className="edit-form">
                   <input value={editTitle} onChange={(e) => setEditTitle(e.target.value)} />

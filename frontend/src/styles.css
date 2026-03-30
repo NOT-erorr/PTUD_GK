@@ -361,6 +361,38 @@ button.danger {
   border-radius: 12px;
 }
 
+.photo-card__img-wrap {
+  position: relative;
+}
+
+.photo-card__heart {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  transition: transform 0.2s ease, background 0.15s ease;
+  line-height: 1;
+}
+
+.photo-card__heart:hover {
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.photo-card__heart--active {
+  animation: heart-pop 0.35s ease;
+}
+
 .photo-card p {
   color: var(--muted);
   min-height: 2.2rem;
@@ -389,6 +421,39 @@ button.danger {
   max-height: 480px;
   object-fit: cover;
   border-radius: 14px;
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.favorite-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 50%;
+  transition: transform 0.2s ease, background 0.15s ease;
+  line-height: 1;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.2);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.favorite-btn--active {
+  animation: heart-pop 0.35s ease;
+}
+
+@keyframes heart-pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.35); }
+  100% { transform: scale(1); }
 }
 
 /* ── Community page ── */
@@ -450,6 +515,31 @@ button.danger {
   max-height: 520px;
   object-fit: cover;
   display: block;
+}
+
+.community-card__actions {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+}
+
+.community-card__like {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.2rem 0.3rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+  line-height: 1;
+}
+
+.community-card__like:hover {
+  transform: scale(1.2);
+}
+
+.community-card__like--active {
+  animation: heart-pop 0.35s ease;
 }
 
 .community-card__caption {

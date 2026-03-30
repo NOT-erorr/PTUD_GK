@@ -16,12 +16,28 @@ function CommunityPage() {
   const [error, setError] = useState("");
   const [commentTexts, setCommentTexts] = useState({});
   const [submitting, setSubmitting] = useState(null);
+  const [favorites, setFavorites] = useState({});
 
   const fetchPosts = async () => {
     setLoading(true);
     try {
       const { data } = await api.get("/community");
       setPosts(data);
+      // Initialize favorites from linked photos
+      const favMap = {};
+      for (const p of data) {
+        if (p.photo_id) {
+          try {
+            const { data: photo } = await api.get(`/photos/${p.photo_id}`);
+            favMap[p.id] = photo.is_favorite;
+          } catch {
+            favMap[p.id] = false;
+          }
+        } else {
+          favMap[p.id] = false;
+        }
+      }
+      setFavorites(favMap);
     } catch (err) {
       setError(err.response?.data?.detail || "Failed to load community");
     } finally {
@@ -59,6 +75,18 @@ function CommunityPage() {
       setPosts((prev) => prev.filter((p) => p.id !== postId));
     } catch (err) {
       setError(err.response?.data?.detail || "Delete failed");
+    }
+  };
+
+  const toggleFavorite = async (post) => {
+    if (!post.photo_id) return;
+    // Optimistic UI
+    setFavorites((prev) => ({ ...prev, [post.id]: !prev[post.id] }));
+    try {
+      await api.patch(`/photos/${post.photo_id}/favorite`);
+    } catch {
+      // Rollback
+      setFavorites((prev) => ({ ...prev, [post.id]: !prev[post.id] }));
     }
   };
 
@@ -122,6 +150,17 @@ function CommunityPage() {
                 alt={post.caption || "Community post"}
                 className="community-card__image"
               />
+
+              {/* Actions */}
+              <div className="community-card__actions">
+                <button
+                  className={`community-card__like${favorites[post.id] ? " community-card__like--active" : ""}`}
+                  onClick={() => toggleFavorite(post)}
+                  title={favorites[post.id] ? "Bỏ yêu thích" : "Yêu thích"}
+                >
+                  {favorites[post.id] ? "❤️" : "🤍"}
+                </button>
+              </div>
 
               {/* Caption */}
               {post.caption && (
