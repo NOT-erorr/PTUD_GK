@@ -12,6 +12,7 @@ class User(Base):
     username = Column(String(50), unique=True, nullable=False, index=True)
     email = Column(String(255), unique=True, nullable=False, index=True)
     password = Column(String(255), nullable=False)
+    is_admin = Column(Boolean, default=False)
 
     photos = relationship("Photo", back_populates="owner", cascade="all, delete-orphan")
     community_posts = relationship("CommunityPost", back_populates="author", cascade="all, delete-orphan")

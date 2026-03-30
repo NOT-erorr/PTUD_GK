@@ -120,12 +120,12 @@ def delete_community_post(
     current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    post = (
-        db.query(models.CommunityPost)
-        .filter(models.CommunityPost.id == post_id, models.CommunityPost.user_id == current_user.id)
-        .first()
-    )
+    post = db.query(models.CommunityPost).filter(models.CommunityPost.id == post_id).first()
     if not post:
-        raise HTTPException(status_code=404, detail="Post not found or not yours")
+        raise HTTPException(status_code=404, detail="Post not found")
+        
+    if post.user_id != current_user.id and not current_user.is_admin:
+        raise HTTPException(status_code=403, detail="Not authorized to delete this post")
+        
     db.delete(post)
     db.commit()
